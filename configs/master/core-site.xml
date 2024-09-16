@@ -4,5 +4,6 @@
     <property>
         <name>fs.defaultFS</name>
         <value>hdfs://master:9000</value>
+        <description>This property specifies the default filesystem URL for Hadoop, pointing to the master node's HDFS service.</description>
     </property>
 </configuration>

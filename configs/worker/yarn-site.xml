@@ -1,31 +1,49 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 <configuration>
     <property>
         <name>yarn.resourcemanager.hostname</name>
         <value>master</value>
+        <description>This property specifies the hostname of the YARN ResourceManager, which manages resource allocation and job scheduling in the cluster. Here, it's set to 'master' node.</description>
+    </property>
+    <property>
+        <name>yarn.resourcemanager.nodemanagers.heartbeat-interval-ms</name>
+        <value>1000</value> <!-- Heartbeat interval from NodeManager to ResourceManager -->
+        <description>This property specifies the interval (in milliseconds) at which the NodeManagers send heartbeats to the ResourceManager. It helps the ResourceManager monitor the health and status of the NodeManagers.</description>
+    </property>
+    <property>
+        <name>yarn.resourcemanager.nodemanagers.expiry-interval-ms</name>
+        <value>60000</value> <!-- Time before marking a NodeManager as expired -->
+        <description>This property defines the time (in milliseconds) that the ResourceManager will wait before marking a NodeManager as expired if it has not sent any heartbeats. This helps in detecting and handling NodeManagers that have failed or are unreachable.</description>
     </property>
     <property>
         <name>yarn.nodemanager.aux-services</name>
         <value>mapreduce_shuffle</value>
+        <description>This property enables the auxiliary MapReduce shuffle service, which is required for MapReduce jobs to work in YARN.</description>
     </property>
     <property>
         <name>yarn.nodemanager.local-dirs</name>
-        <value>${user.home}/bigdata/hd-data/yarn/data</value>
+        <value>${user.home}/bigdata/yarn/data</value>
+        <description>This property defines the local filesystem directory where the NodeManager stores container data.</description>
     </property>
     <property>
         <name>yarn.nodemanager.logs-dirs</name>
-        <value>${user.home}/bigdata/hd-data/yarn/logs</value>
+        <value>${user.home}/bigdata/yarn/logs</value>
+        <description>This property defines the directory where the NodeManager stores logs for the containers it manages.</description>
     </property>
     <property>
         <name>yarn.nodemanager.disk-health-checker.max-disk-utilization-perdisk-percentage</name>
         <value>99.9</value>
+        <description>This property sets the maximum disk utilization percentage that the NodeManager allows before marking the disk as unhealthy.</description>
     </property>
     <property>
         <name>yarn.nodemanager.vmem-check-enabled</name>
         <value>false</value>
+        <description>This property disables virtual memory (vMem) checking, allowing containers to exceed their virtual memory limits without being killed.</description>
     </property>
     <property>
         <name>yarn.nodemanager.env-whitelist</name>
         <value>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME</value>
+        <description>This property defines a whitelist of environment variables that the NodeManager will pass to containers, ensuring necessary paths are available during job execution.</description>
     </property>
 </configuration>

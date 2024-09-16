@@ -3,10 +3,32 @@
 <configuration>
     <property>
         <name>dfs.name.dir</name>
-        <value>${user.home}/bigdata/hd-data/nn</value>
+        <value>${user.home}/bigdata/hdfs/namenode</value>
+        <description>This property specifies the local filesystem path where the HDFS NameNode stores its metadata.</description>
     </property>
     <property>
         <name>dfs.replication</name>
-        <value>2</value>
+        <value>3</value> <!-- 3 workers -->
+        <description>This property sets the default block replication factor in HDFS. It defines how many copies of each block will be stored across the cluster.</description>
+    </property>
+    <property>
+        <name>dfs.heartbeat.interval</name>
+        <value>3</value>
+        <description>This property specifies the interval (in seconds) between heartbeats sent by the DataNodes to the NameNode. It helps the NameNode monitor DataNode health.</description>
+    </property>
+    <property>
+        <name>dfs.namenode.stale.datanode.interval</name>
+        <value>30</value>
+        <description>This property defines the time (in seconds) the NameNode waits before marking a DataNode as stale when it hasn't received a heartbeat.</description>
+    </property>
+    <property>
+        <name>dfs.namenode.decommission.interval</name>
+        <value>30</value>
+        <description>This property sets the time (in seconds) before a DataNode is marked as decommissioned after it is considered dead by the NameNode.</description>
+    </property>
+    <property>
+        <name>dfs.namenode.heartbeat.recheck-interval</name>
+        <value>30000</value>
+        <description>This property sets the interval (in milliseconds) at which the NameNode checks for the heartbeats from DataNodes to determine if they are still alive. A shorter interval allows the NameNode to detect dead nodes more quickly.</description>
     </property>
 </configuration>

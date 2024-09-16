@@ -3,10 +3,17 @@
 <configuration>
     <property>
         <name>dfs.data.dir</name>
-        <value>${user.home}/bigdata/hd-data/dn</value>
+        <value>${user.home}/bigdata/hdfs/datanode</value>
+        <description>This property specifies the local filesystem path where the HDFS DataNode stores its data blocks.</description>
     </property>
     <property>
         <name>dfs.replication</name>
-        <value>2</value>
+        <value>3</value> <!-- 3 workers -->
+        <description>This property sets the default block replication factor in HDFS. It defines how many copies of each block will be stored across the cluster.</description>
+    </property>
+    <property>
+        <name>dfs.heartbeat.interval</name>
+        <value>3</value>
+        <description>This property specifies the interval (in seconds) between heartbeats sent by the DataNodes to the NameNode. It helps the NameNode monitor DataNode health.</description>
     </property>
 </configuration>

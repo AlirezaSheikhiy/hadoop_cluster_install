@@ -1,7 +1,19 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 <configuration>
     <property>
         <name>yarn.resourcemanager.hostname</name>
         <value>master</value>
+        <description>This property specifies the hostname of the YARN ResourceManager, which manages resource allocation and job scheduling in the cluster. Here, it's set to 'master' node.</description>
+    </property>
+    <property>
+        <name>yarn.resourcemanager.nodemanagers.heartbeat-interval-ms</name>
+        <value>1000</value> <!-- Heartbeat interval from NodeManager to ResourceManager -->
+        <description>This property specifies the interval (in milliseconds) at which the NodeManagers send heartbeats to the ResourceManager. It helps the ResourceManager monitor the health and status of the NodeManagers.</description>
+    </property>
+    <property>
+        <name>yarn.resourcemanager.nodemanagers.expiry-interval-ms</name>
+        <value>60000</value> <!-- Time before marking a NodeManager as expired -->
+        <description>This property defines the time (in milliseconds) that the ResourceManager will wait before marking a NodeManager as expired if it has not sent any heartbeats. This helps in detecting and handling NodeManagers that have failed or are unreachable.</description>
     </property>
 </configuration>

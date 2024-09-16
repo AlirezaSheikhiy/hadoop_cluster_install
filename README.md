@@ -486,9 +486,22 @@ master-terminal> hadoop fs -cat /hello.txt
 
 ---
 
-#### 26. From the host machine access Hadoop web interface and check hdfs file manager.
+#### 26. Now you can access these web interfaces from the host machine and even check hdfs file manager. Here are the default URLs for accessing the web interfaces.
 
-Browser: http://192.168.56.50:9870
+##### HDFS Web Interface (NameNode UI)
+
+- **URL**: `http://192.168.56.50:9870`
+- **Purpose**: Provides information about the HDFS filesystem, including health, data nodes, file system usage, etc.
+
+##### YARN ResourceManager Web Interface
+
+- **URL**: `http://192.168.56.50:8088`
+- **Purpose**: Shows the status of YARN applications, resource usage, and node managers.
+
+##### Hadoop JobHistory Server (if using MapReduce)
+
+- **URL**: `http://192.168.56.50:19888`
+- **Purpose**: Displays information about completed MapReduce jobs.
 
 ---
 
