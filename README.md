@@ -162,12 +162,12 @@ terminal> sudo nano /etc/netplan/01-netcfg.yaml
 network:
   version: 2
   renderer: networkd
-ethernets:
-  enp0s3:
-    dhcp4: true
-  enp0s8:
-    addresses: [192.168.56.50/24]
-    dhcp4: false
+  ethernets:
+    enp0s3:
+      dhcp4: true
+    enp0s8:
+      addresses: [192.168.56.50/24]
+      dhcp4: false
 ```
 
 3. Apply this config to your machine and check your new adapter ip.
@@ -284,12 +284,12 @@ worker1-terminal> sudo nano /etc/netplan/01-netcfg.yaml
 network:
   version: 2
   renderer: networkd
-ethernets:
-  enp0s3:
-    dhcp4: true
-  enp0s8:
-    addresses: [192.168.56.51/24]
-    dhcp4: false
+  ethernets:
+    enp0s3:
+      dhcp4: true
+    enp0s8:
+      addresses: [192.168.56.51/24]
+      dhcp4: false
 ```
 
 3. Apply this config to your machine and check your new adapter ip.
@@ -349,12 +349,12 @@ worker2-terminal> sudo nano /etc/netplan/01-netcfg.yaml
 network:
   version: 2
   renderer: networkd
-ethernets:
-  enp0s3:
-    dhcp4: true
-  enp0s8:
-    addresses: [192.168.56.52/24]
-    dhcp4: false
+  ethernets:
+    enp0s3:
+      dhcp4: true
+    enp0s8:
+      addresses: [192.168.56.52/24]
+      dhcp4: false
 ```
 
 3. Apply this config to your machine and check your new adapter ip.
@@ -406,12 +406,12 @@ worker3-terminal> sudo nano /etc/netplan/01-netcfg.yaml
 network:
   version: 2
   renderer: networkd
-ethernets:
-  enp0s3:
-    dhcp4: true
-  enp0s8:
-    addresses: [192.168.56.53/24]
-    dhcp4: false
+  ethernets:
+    enp0s3:
+      dhcp4: true
+    enp0s8:
+      addresses: [192.168.56.53/24]
+      dhcp4: false
 ```
 
 3. Apply this config to your machine and check your new adapter ip.
