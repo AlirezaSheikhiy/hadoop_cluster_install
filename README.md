@@ -94,7 +94,7 @@ root@terminal> exit
 
 ```bash
 terminal> sudo apt clean && sudo apt autoclean && sudo apt update && sudo apt upgrade && sudo apt dist-upgrade
-terminal> sudo apt install nano vim ssh net-tools openjdk-8-jdk git
+terminal> sudo apt install nano vim ssh net-tools openjdk-8-jdk git iputils-ping
 ```
 
 ##### **If you don't want to use _Java_ for _MapReduce_ programming, you should install desired programming language compiler too. For example if you want to use _Python_, you should execute commands below too.**
