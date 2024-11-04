@@ -212,10 +212,10 @@ cmd> scp hadoop-3.3.6.tar.gz hduser@192.168.56.50:/home/hduser
 
 #### 13. Configure Hadoop.
 
-1. Execute command below on **master** to extract _hadoop_ archive.
+1. Execute command below on **master** to extract _hadoop_ archive in a new directory and then remove the archive.
 
 ```bash
-master-terminal> tar xvf hadoop-3.3.6.tar.gz
+master-terminal> tar xvf hadoop-3.3.6.tar.gz && rm hadoop-3.3.6.tar.gz
 ```
 
 2. Execute command below on **master** to edit _.bashrc_ file.
@@ -239,11 +239,11 @@ export PATH=$HADOOP_HOME/sbin:$HADOOP_HOME/bin:$PATH
 master-terminal> source ~/.bashrc
 ```
 
-#### 14. clone the [_hadoop-cluster-install_](https://github.com/AlirezaSheikhiy/hadoop_cluster_install.git) repos file from github. Then copy **master** configs to this location.
+#### 14. clone the [_hadoop_cluster_install_](https://github.com/AlirezaSheikhiy/hadoop_cluster_install.git) repos file from github. Then copy **master** configs to this location.
 
 ```bash
 master-terminal> git clone https://github.com/AlirezaSheikhiy/hadoop_cluster_install.git
-master-terminal> cp hadoop-cluster-install/configs/master/* $HADOOP_HOME/etc/hadoop/
+master-terminal> cp hadoop_cluster_install/configs/master/* $HADOOP_HOME/etc/hadoop/
 ```
 
 ---
@@ -309,7 +309,7 @@ worker1-terminal> sudo hostnamectl set-hostname worker1
 
 ```bash
 worker1-terminal> cd ~
-worker1-terminal> cp hadoop-cluster-install/configs/worker/* $HADOOP_HOME/etc/hadoop/
+worker1-terminal> cp hadoop_cluster_install/configs/worker/* $HADOOP_HOME/etc/hadoop/
 ```
 
 ---
@@ -374,7 +374,7 @@ worker2-terminal> sudo hostnamectl set-hostname worker2
 
 ```bash
 worker2-terminal> cd ~
-worker2-terminal> cp hadoop-cluster-install/configs/worker/* $HADOOP_HOME/etc/hadoop/
+worker2-terminal> cp hadoop_cluster_install/configs/worker/* $HADOOP_HOME/etc/hadoop/
 ```
 
 6. Turn off **worker2** machine.
@@ -431,7 +431,7 @@ worker3-terminal> sudo hostnamectl set-hostname worker3
 
 ```bash
 worker3-terminal> cd ~
-worker3-terminal> cp hadoop-cluster-install/configs/worker/* $HADOOP_HOME/etc/hadoop/
+worker3-terminal> cp hadoop_cluster_install/configs/worker/* $HADOOP_HOME/etc/hadoop/
 ```
 
 6. Turn off **worker3** machine.
@@ -442,7 +442,7 @@ worker3-terminal> init 0
 
 ---
 
-#### 23. Start all VMs. Copy **master** ssh id on all workers. Ensure that master is able to login to itself and all workers without password over ssh.
+#### 23. Start all VMs and login to them. Copy **master** ssh id on all workers. Ensure that master is able to login to itself and all workers without password over ssh.
 
 ```console
 cmd-1 > ssh hduser@192.168.56.50
@@ -490,17 +490,17 @@ master-terminal> hadoop fs -cat /hello.txt
 
 ##### HDFS Web Interface (NameNode UI)
 
-- **URL**: `http://192.168.56.50:9870`
+- **URL**: [http://192.168.56.50:9870](http://192.168.56.50:9870)
 - **Purpose**: Provides information about the HDFS filesystem, including health, data nodes, file system usage, etc.
 
 ##### YARN ResourceManager Web Interface
 
-- **URL**: `http://192.168.56.50:8088`
+- **URL**: [http://192.168.56.50:8088](http://192.168.56.50:8088)
 - **Purpose**: Shows the status of YARN applications, resource usage, and node managers.
 
 ##### Hadoop JobHistory Server (if using MapReduce)
 
-- **URL**: `http://192.168.56.50:19888`
+- **URL**: [http://192.168.56.50:19888](http://192.168.56.50:19888)
 - **Purpose**: Displays information about completed MapReduce jobs.
 
 ---
