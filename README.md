@@ -505,6 +505,53 @@ master-terminal> hadoop fs -cat /hello.txt
 
 ---
 
+#### 27. Now let's see a **MapReduce** programming example `wordcount`.
+
+##### 1. Copy the `mapper.py` and `reducer.py` files from scripts folder of this cloned repository to `~`.
+
+```bash
+master-terminal> cp hadoop_cluster_install/scripts/wordcount/*.py ~
+```
+
+##### 2. Copy the related data files to each workers.
+
+```bash
+worker1-terminal> cp hadoop_cluster_install/scripts/wordcount/article_1.txt ~
+worker2-terminal> cp hadoop_cluster_install/scripts/wordcount/article_2.txt ~
+worker3-terminal> cp hadoop_cluster_install/scripts/wordcount/article_3.txt ~
+```
+
+##### 3. Create a directory for this project and the input files in HDFS.
+
+```bash
+master-terminal> hadoop fs -mkdir /wordcount
+master-terminal> hadoop fs -mkdir /wordcount/inputs
+```
+
+##### 4. Put the data files from each workers to HDFS.
+
+```bash
+worker1-terminal> hadoop fs -put article_1.txt /wordcount/inputs
+worker2-terminal> hadoop fs -put article_2.txt /wordcount/inputs
+worker3-terminal> hadoop fs -put article_3.txt /wordcount/inputs
+```
+
+##### 5. Execute the scripts from **master** machine to do the distributed computation using MapReduce.
+
+```bash
+master-terminal> hadoop jar hadoop-3.3.6/share/hadoop/tools/lib/hadoop-streaming-3.3.6.jar -input /wordcount/inputs -output /wordcount/outputs -mapper "python mapper.py" -reducer "python reducer.py" -file mapper.py -file reducer.py
+```
+
+##### 6. Now we can print the outputs from HDFS (You can also use [NameNode UI](http://192.168.56.50:9870)).
+
+```bash
+master-terminal> hadoop fs -cat /wordcount/outputs/part-00000
+```
+
+- Please note: If you wish to repeat this process, you must first remove the /wordcount/outputs folder from HDFS. Failing to do so will result in an error.
+
+---
+
 #### 27. Stop the Hadoop and verify.
 
 ```bash
