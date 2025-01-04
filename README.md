@@ -548,7 +548,11 @@ master-terminal> hadoop jar hadoop-3.3.6/share/hadoop/tools/lib/hadoop-streaming
 master-terminal> hadoop fs -cat /wordcount/outputs/part-00000
 ```
 
-- Please note: If you wish to repeat this process, you must first remove the /wordcount/outputs folder from HDFS. Failing to do so will result in an error.
+- Please note: If you wish to repeat this process, you must first remove the /wordcount/outputs folder from HDFS using command below. Failing to do so will result in an error.
+
+```bash
+master-terminal> hadoop fs -rm -r /wordcount/outputs
+```
 
 ---
 
